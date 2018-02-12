@@ -117,7 +117,7 @@ for line in fileinput.FileInput(files=(sys.argv[1])):                           
                   y += 1
        while [] in last_output:                                                                                 #Remove empty entries in last_output.
            last_output.remove([])
-       with open('sys.argv[3]', 'w') as f:                                                                #Save results as text file.
+       with open(sys.argv[3], 'w') as f:                                                                #Save results as text file.
            for i in range(0,len(last_output)):
                real_output = '|'.join(last_output[i])
                f.write('%s\n' % real_output)      
