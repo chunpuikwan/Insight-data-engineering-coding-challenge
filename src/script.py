@@ -111,7 +111,7 @@ for line in fileinput.FileInput(files=(sys.argv[1])):                           
                                if temp_output[0] == last_output[i][0] and temp_output[1] == last_output[i][1]:  #Identify if R_ID and zip are the same.
                                   temp_output[4] = str(float(last_output[i][4]) + float(temp_output[4]))
                                   temp_output[5] = str(int(last_output[i][5]) + 1)                              #Total no. of transaction + 1 if they are from same zip code and for same R_ID
-                                  temp_output[3] = str(round(dict_percentile[R_ID_and_zip][math.ceil(((percentile/100)*int(temp_output[5]))-1)]))
+                                  temp_output[3] = str(round(dict_percentile[R_ID_and_zip][int(math.ceil(((percentile/100)*int(temp_output[5]))-1))]))
                                   calculated_last_output.append(last_output[i]) 
                   last_output.append(temp_output)
                   y += 1
