@@ -1,6 +1,7 @@
 import fileinput                                                                #Fileinput is used for datastreaming from a source file.
 import datetime                                                                 #Library that provides current year for later use in the program.
 import math
+import sys
 '''
 START --- Extract current year
 '''
@@ -13,7 +14,7 @@ FINISH --- Extract current year
 '''
 START --- Import percentile file
 '''
-f = open('percentile.txt', 'r')                                                 #Import percentile file as requested
+f = open(sys.argv[2], 'r')                                                      #Import percentile file as requested
 percentile = int(f.readline())
 f.close
 '''
@@ -42,7 +43,7 @@ Finish --- INITIALIZATION
 '''
 Start --- Program
 '''                                                       
-for line in fileinput.FileInput(files=('itcont.txt')):                          #Data comes in line by line through fileinput
+for line in fileinput.FileInput(files=(sys.argv[1])):                           #Data comes in line by line through fileinput
     input_data = line.split('|')                                                #Delimit '|' and each line of data becomes a list.                                                                                 
     '''
     Now we extract position 0, 7, 10, 13, 14, 15 from original list into a 
@@ -116,7 +117,7 @@ for line in fileinput.FileInput(files=('itcont.txt')):                          
                   y += 1
        while [] in last_output:                                                                                 #Remove empty entries in last_output.
            last_output.remove([])
-       with open('repeat_donors.txt', 'w') as f:                                                                #Save results as text file.
+       with open('sys.argv[3]', 'w') as f:                                                                #Save results as text file.
            for i in range(0,len(last_output)):
                real_output = '|'.join(last_output[i])
                f.write('%s\n' % real_output)      
