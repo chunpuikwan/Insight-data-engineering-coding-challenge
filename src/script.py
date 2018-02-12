@@ -15,7 +15,7 @@ FINISH --- Extract current year
 START --- Import percentile file
 '''
 f = open(sys.argv[2], 'r')                                                      #Import percentile file as requested
-percentile = int(f.readline())
+percentile = float(f.readline())
 f.close
 '''
 FINSIH --- Import percentile file
@@ -109,7 +109,7 @@ for line in fileinput.FileInput(files=(sys.argv[1])):                           
                       for i in range(0, y):                                                                    #Calculations start here: 1. Match R_ID and zip 2. +1 to total number of transaction if from same R_ID and zip 3. calculate the running percentile
                            if last_output[i] not in calculated_last_output:       
                                if temp_output[0] == last_output[i][0] and temp_output[1] == last_output[i][1]:  #Identify if R_ID and zip are the same.
-                                  temp_output[4] = str(float(last_output[i][4]) + float(temp_output[4]))
+                                  temp_output[4] = str(int(round(float(last_output[i][4]) + float(temp_output[4]))))
                                   temp_output[5] = str(int(last_output[i][5]) + 1)                              #Total no. of transaction + 1 if they are from same zip code and for same R_ID
                                   temp_output[3] = str(int(round(dict_percentile[R_ID_and_zip][int(math.ceil(((percentile/100)*int(temp_output[5]))-1))])))
                                   calculated_last_output.append(last_output[i]) 
