@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Make sure the python files are executable
 chmod a+x ./src/script.py
