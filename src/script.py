@@ -6,7 +6,7 @@ import sys
 '''
 START --- Import percentile file
 '''
-f = open(sys.agrv[2], 'r')                                                      #Import percentile file as requested
+f = open(sys.argv[2], 'r')                                                      #Import percentile file as requested
 percentile = float(f.readline())
 f.close
 '''
